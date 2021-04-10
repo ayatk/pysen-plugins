@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "pysen-plugins"
+version = "0.1.0"
+description = ""
+authors = ["ayatk <git@ayatk.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pysen = {version = "^0.9.1", extras = ["lint"]}
+autoflake = "^1.4"
+dacite = "^1.6.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.pysen]
+version = "0.9"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 100
+py_version = "py38"
+
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
+
+[tool.pysen.lint.source]
+  includes = ["."]
+  excludes = [".venv"]
+
+[tool.pysen.plugin.autoflake]
+script = "autoflake.py"
+
+[tool.pysen.plugin.autoflake.config]
+includes = ["."]
+excludes = [".venv"]
+remove_unused_variables = true
+remove_all_unused_imports = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
