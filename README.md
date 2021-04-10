@@ -10,8 +10,6 @@ https://github.com/myint/autoflake
 
 > autoflake removes unused imports and unused variables from Python code.
 
-I have specified `format` as the target, so when I run` pysen run format`, it runs with it.
-
 ### Settings
 
 ```toml
